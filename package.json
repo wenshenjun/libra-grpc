@@ -1,0 +1,13 @@
+{
+  "name": "libra-node-wrapper",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.1",
+    "grpc": "^1.21.1"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}
