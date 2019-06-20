@@ -6,7 +6,11 @@
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.5.1",
-    "grpc": "^1.21.1"
+    "@improbable-eng/grpc-web": "^0.9.6",
+    "@improbable-eng/grpc-web-node-http-transport": "^0.9.6",
+    "grpc": "^1.21.1",
+    "grpc-web": "^1.0.4",
+    "ts-protoc-gen": "^0.10.0"
   },
   "devDependencies": {},
   "license": "MIT"

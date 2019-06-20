@@ -12,8 +12,8 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 });
 const debugProto = grpc.loadPackageDefinition(packageDefinition).debug;
 
-const client = new debugProto.NodeDebugInterface('ac.testnet.libra.org:80', grpc.credentials.createInsecure());
+const client = new debugProto.NodeDebugInterface('ac.testnet.libra.org:8000', grpc.credentials.createInsecure());
 
-client.GetNodeDetails(null, function(err, response) {
+client.getNodeDetails(null, function(err, response) {
   console.log('Greeting:', err, response);
 });
