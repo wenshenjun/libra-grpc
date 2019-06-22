@@ -19,8 +19,9 @@ var libra = require('libra-grpc');
 var client = new libra.Client('ac.testnet.libra.org:8000');
 
 // Get account state
-var address = '435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4';
-var params = { address: Buffer.from(address, 'hex') };
+var params = {
+  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+};
 client.request('get_account_state', params, function(err, result) {
   console.log(err, result);
 });
@@ -52,8 +53,9 @@ return client.requestAsync('get_account_state', params).then(function(result) {
 
 #### Get account state
 ```js
-var address = '435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4';
-var params = { address: Buffer.from(address, 'hex') };
+var params = {
+  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+};
 client.request('get_account_state', params, function(err, result) {
   console.log(err, result);
 });
@@ -67,6 +69,21 @@ var params = {
   fetch_events: true
 };
 client.request('get_transactions', params, function(err, result) {
+  console.log(err, result);
+});
+```
+
+#### Get events
+```js
+var params = {
+  access_path: {
+    address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex')
+  },
+  start_event_seq_num: 2,
+  ascending: true,
+  limit: 10
+};
+client.request('get_events_by_event_access_path', params, function(err, result) {
   console.log(err, result);
 });
 ```
