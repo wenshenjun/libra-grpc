@@ -90,7 +90,7 @@ client.request('get_events_by_event_access_path', params, function(err, result) 
 
 ### Getting help
 
-If you believe you're experiencing a bug with or want to report incorrect documentation, open an issue on our issue tracker. For a more real-time avenue of communication, check out the Discord or Telegram servers. There you'll find community members who can help answer questions about development questions.
+If you believe you're experiencing a bug with or want to report incorrect documentation, open an issue on our issue tracker. For a more real-time avenue of communication, check out the Discord or Telegram servers. There you'll find community members who can help answer about development questions.
 
 * [Join us on Telegram](https://t.me/joinchat/DAQb4RSNpqEok3p-QdmaKQ)
 * [Join us on Discord](https://discord.gg/XyS25F6)
