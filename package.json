@@ -1,13 +1,39 @@
 {
-  "name": "libra-sdk-js",
+  "name": "libra-grpc",
   "version": "0.0.1",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "description": "A lightweight JavaScript library for Libra",
+  "main": "dist/libra.cjs.js",
+  "module": "dist/libra.esm.js",
+  "browser": "dist/libra.min.js",
   "dependencies": {
     "@grpc/proto-loader": "^0.5.1",
     "grpc": "^1.21.1"
   },
-  "devDependencies": {},
-  "license": "MIT"
+  "devDependencies": {
+    "bluebird": "^3.5.3",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-filesize": "^5.0.1",
+    "rollup-plugin-uglify": "^3.0.0",
+    "uglify-es": "^3.3.9"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": "bonustrack/libra-grpc",
+  "author": "Bonustrack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bonustrack/libra-grpc/issues"
+  },
+  "homepage": "https://github.com/bonustrack/libra-grpc"
 }
