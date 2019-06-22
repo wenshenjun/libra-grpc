@@ -52,6 +52,8 @@ return client.requestAsync('get_account_state', params).then(function(result) {
 ### API
 
 #### Get account state
+Get the latest state for an account.
+
 ```js
 var params = {
   address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
@@ -62,6 +64,8 @@ client.request('get_account_state', params, function(err, result) {
 ```
 
 #### Get account transaction
+Get the committed transaction by account and sequence number.
+
 ```js
 var params = {
   account: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
@@ -74,6 +78,8 @@ client.request('get_account_transaction_by_sequence_number', params, function(er
 ```
 
 #### Get events
+Get event by account and path.
+
 ```js
 var params = {
   access_path: {
@@ -89,6 +95,8 @@ client.request('get_events_by_event_access_path', params, function(err, result) 
 ```
 
 #### Get transactions
+Get the committed transaction by range
+
 ```js
 var params = {
   start_version: 1,
