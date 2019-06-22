@@ -43,7 +43,7 @@ client.request('get_account_state', params, function(err, result) {
   console.log(err, result);
 });
 ```js
-// So instead of writing client.request('get_peers', null, cb); you have to write:
+// So instead of writing client.request('get_account_state', params, cb); you have to write:
 return client.requestAsync('get_account_state', params).then(function(result) {
   console.log(result);
 });
