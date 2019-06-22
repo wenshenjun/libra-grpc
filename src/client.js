@@ -25,8 +25,9 @@ export default class Client {
     this.client.updateToLatestLedger({
       client_known_version: 0,
       requested_items: [request],
-    }, (err, response) => {
-      cb(err, response.response_items[0][`${command}_response`]);
+    }, (error, response) => {
+      const result = error ? null : response.response_items[0][`${command}_response`];
+      cb(error, result);
     });
   }
 }
