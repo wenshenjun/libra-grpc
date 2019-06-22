@@ -12,5 +12,5 @@ npm run start
 
 ### Get help
 
-* [Libra Developer Chat Telegram](https://t.me/joinchat/DAQb4RSNpqEok3p-QdmaKQ)
-* [Libra Developer Chat Discord](https://discord.gg/XyS25F6)
+* [Libra Devs on Telegram](https://t.me/joinchat/DAQb4RSNpqEok3p-QdmaKQ)
+* [Libra Devs on Discord](https://discord.gg/XyS25F6)
