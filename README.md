@@ -61,14 +61,14 @@ client.request('get_account_state', params, function(err, result) {
 });
 ```
 
-#### Get transactions
+#### Get account transaction
 ```js
 var params = {
-  start_version: 1,
-  limit: 10,
+  account: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+  sequence_number: 1,
   fetch_events: true
 };
-client.request('get_transactions', params, function(err, result) {
+client.request('get_account_transaction_by_sequence_number', params, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -84,6 +84,18 @@ var params = {
   limit: 10
 };
 client.request('get_events_by_event_access_path', params, function(err, result) {
+  console.log(err, result);
+});
+```
+
+#### Get transactions
+```js
+var params = {
+  start_version: 1,
+  limit: 10,
+  fetch_events: true
+};
+client.request('get_transactions', params, function(err, result) {
   console.log(err, result);
 });
 ```

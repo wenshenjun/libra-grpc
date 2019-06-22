@@ -12,14 +12,14 @@ const test = async () => {
   const accountState = await client.requestAsync('get_account_state', params);
   console.log('Account state', accountState);
 
-  /** Get transactions */
+  /** Get account transaction */
   params = {
-    start_version: 1,
-    limit: 10,
+    account: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+    sequence_number: 1,
     fetch_events: true,
   };
-  const transactions = await client.requestAsync('get_transactions', params);
-  console.log('Transactions', transactions);
+  const transaction = await client.requestAsync('get_account_transaction_by_sequence_number', params);
+  console.log('Transaction', transaction);
 
   /** Get events */
   params = {
@@ -32,6 +32,15 @@ const test = async () => {
   };
   const events = await client.requestAsync('get_events_by_event_access_path', params);
   console.log('Events', events);
+
+  /** Get transactions */
+  params = {
+    start_version: 1,
+    limit: 10,
+    fetch_events: true,
+  };
+  const transactions = await client.requestAsync('get_transactions', params);
+  console.log('Transactions', transactions);
 };
 
 test();
