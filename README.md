@@ -48,6 +48,29 @@ return client.requestAsync('get_account_state', params).then(function(result) {
 });
 ```
 
+### API
+
+#### Get account state
+```js
+var address = '435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4';
+var params = { address: Buffer.from(address, 'hex') };
+client.request('get_account_state', params, function(err, result) {
+  console.log(err, result);
+});
+```
+
+#### Get transactions
+```js
+var params = {
+  start_version: 1,
+  limit: 10,
+  fetch_events: true
+};
+client.request('get_transactions', params, function(err, result) {
+  console.log(err, result);
+});
+```
+
 ### Getting help
 
 If you believe you're experiencing a bug with or want to report incorrect documentation, open an issue on our issue tracker. For a more real-time avenue of communication, check out the Discord or Telegram servers. There you'll find community members who can help answer questions about development questions.
