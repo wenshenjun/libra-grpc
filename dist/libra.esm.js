@@ -22,13 +22,23 @@ class Client {
   request(command, params, cb) {
     const request = {};
     request[`${command}_request`] = params;
-    this.client.updateToLatestLedger({
-      client_known_version: 0,
-      requested_items: [request],
-    }, (err, response) => {
-      cb(err, response.response_items[0][`${command}_response`]);
+    const promise = new Promise((resolve, reject) => {
+      this.client.updateToLatestLedger({
+        client_known_version: 0,
+        requested_items: [request],
+      }, (error, response) => {
+        const result = error ? null : response.response_items[0][`${command}_response`];
+        if (error) return reject(error);
+        return resolve(result);
+      });
     });
+    if (!cb) return promise;
+    return promise
+      .then(res => cb(null, res))
+      .catch(err => cb(err, null));
   }
 }
 
-export { Client };
+var version = "0.0.2";
+
+export { Client, version };

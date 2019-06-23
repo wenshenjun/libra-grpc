@@ -20,34 +20,18 @@ var client = new libra.Client('ac.testnet.libra.org:8000');
 
 // Get account state
 var params = {
-  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex')
 };
 client.request('get_account_state', params, function(err, result) {
   console.log(err, result);
 });
-```
-[See more examples](/test/test.js)
 
-### Promises
-
-You can also use Libra gRPC with promises by promisifying Libra gRPC with
-[bluebird](https://github.com/petkaantonov/bluebird) as in:
-
-```js
-var libra = require('libra-grpc');
-bluebird.promisifyAll(libra.Client.prototype);
-```
-
-It'll add a *Async* to all libra functions (e.g. return client.requestAsync().then())
-client.request('get_account_state', params, function(err, result) {
-  console.log(err, result);
-});
-```js
-// So instead of writing client.request('get_account_state', params, cb); you have to write:
-return client.requestAsync('get_account_state', params).then(function(result) {
+// If a callback is not provided, a Promise is returned
+client.request('get_account_state', params).then(function(result) {
   console.log(result);
 });
 ```
+[See more examples](/test/test.js)
 
 ### API
 
@@ -56,7 +40,7 @@ Get the latest state for an account.
 
 ```js
 var params = {
-  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
+  address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex')
 };
 client.request('get_account_state', params, function(err, result) {
   console.log(err, result);

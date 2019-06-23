@@ -1,6 +1,6 @@
 {
   "name": "libra-grpc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight JavaScript library for Libra",
   "main": "dist/libra.cjs.js",
   "module": "dist/libra.esm.js",
@@ -10,12 +10,11 @@
     "grpc": "^1.21.1"
   },
   "devDependencies": {
-    "bluebird": "^3.5.3",
-    "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "rollup": "^0.67.3",
+    "eslint-plugin-import": "^2.17.3",
+    "rollup": "^1.16.2",
     "rollup-plugin-filesize": "^5.0.1",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-uglify": "^3.0.0",
     "uglify-es": "^3.3.9"
   },

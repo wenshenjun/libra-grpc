@@ -1,7 +1,5 @@
 const libra = require('..');
-const bluebird = require('bluebird');
 
-bluebird.promisifyAll(libra.Client.prototype);
 const client = new libra.Client('ac.testnet.libra.org:8000');
 
 const test = async () => {
@@ -9,7 +7,7 @@ const test = async () => {
   let params = {
     address: Buffer.from('435fc8fc85510cf38a5b0cd6595cbb8fbb10aa7bb3fe9ad9820913ba867f79d4', 'hex'),
   };
-  const accountState = await client.requestAsync('get_account_state', params);
+  const accountState = await client.request('get_account_state', params);
   console.log('Account state', accountState);
 
   /** Get account transaction */
@@ -18,7 +16,7 @@ const test = async () => {
     sequence_number: 1,
     fetch_events: true,
   };
-  const transaction = await client.requestAsync('get_account_transaction_by_sequence_number', params);
+  const transaction = await client.request('get_account_transaction_by_sequence_number', params);
   console.log('Transaction', transaction);
 
   /** Get events */
@@ -30,7 +28,7 @@ const test = async () => {
     ascending: true,
     limit: 10,
   };
-  const events = await client.requestAsync('get_events_by_event_access_path', params);
+  const events = await client.request('get_events_by_event_access_path', params);
   console.log('Events', events);
 
   /** Get transactions */
@@ -39,7 +37,7 @@ const test = async () => {
     limit: 10,
     fetch_events: true,
   };
-  const transactions = await client.requestAsync('get_transactions', params);
+  const transactions = await client.request('get_transactions', params);
   console.log('Transactions', transactions);
 };
 
