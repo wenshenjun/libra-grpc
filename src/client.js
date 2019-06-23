@@ -2,7 +2,7 @@ import path from 'path';
 import grpc from 'grpc';
 import protoLoader from '@grpc/proto-loader';
 
-const PROTO_PATH = path.resolve(__dirname, './protos/admission_control.proto');
+const PROTO_PATH = path.resolve(__dirname, './pb/admission_control.proto');
 
 export default class Client {
   constructor(address) {

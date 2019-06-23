@@ -1,8 +1,9 @@
 import path from 'path';
 import grpc from 'grpc';
 import protoLoader from '@grpc/proto-loader';
+import { RawTransaction } from './pb/transaction_pb';
 
-const PROTO_PATH = path.resolve(__dirname, './protos/admission_control.proto');
+const PROTO_PATH = path.resolve(__dirname, './pb/admission_control.proto');
 
 class Client {
   constructor(address) {
@@ -39,6 +40,15 @@ class Client {
   }
 }
 
-var version = "0.0.2";
+function deserializeRawTxnBytes(rawTxnBytes) {
+  const rawTx = RawTransaction.deserializeBinary(rawTxnBytes);
+  return rawTx.toObject();
+}
 
-export { Client, version };
+var utils = {
+  deserializeRawTxnBytes,
+};
+
+var version = "0.0.3";
+
+export { Client, utils, version };

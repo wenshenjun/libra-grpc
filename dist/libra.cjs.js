@@ -7,8 +7,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var path = _interopDefault(require('path'));
 var grpc = _interopDefault(require('grpc'));
 var protoLoader = _interopDefault(require('@grpc/proto-loader'));
+var transaction_pb = require('./pb/transaction_pb');
 
-const PROTO_PATH = path.resolve(__dirname, './protos/admission_control.proto');
+const PROTO_PATH = path.resolve(__dirname, './pb/admission_control.proto');
 
 class Client {
   constructor(address) {
@@ -45,7 +46,17 @@ class Client {
   }
 }
 
-var version = "0.0.2";
+function deserializeRawTxnBytes(rawTxnBytes) {
+  const rawTx = transaction_pb.RawTransaction.deserializeBinary(rawTxnBytes);
+  return rawTx.toObject();
+}
+
+var utils = {
+  deserializeRawTxnBytes,
+};
+
+var version = "0.0.3";
 
 exports.Client = Client;
+exports.utils = utils;
 exports.version = version;

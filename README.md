@@ -92,6 +92,17 @@ client.request('get_transactions', params, function(err, result) {
 });
 ```
 
+### Utils
+
+#### Deserialize raw txn bytes
+Deserialize the raw bytes into a raw transaction object
+
+```js
+var rawTxnBytes = 'CiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACiQTjj/zqDoBRr0AQq/AUxJQlJBVk0KAQAHAUoAAAAGAAAAA1AAAAAGAAAADFYAAAAFAAAADVsAAAAEAAAABV8AAAAzAAAABJIAAAAgAAAAB7IAAAANAAAAAAAAAQACAAMAAQQAAgACBAIDAgQCBjxTRUxGPgxMaWJyYUFjY291bnQJTGlicmFDb2luBG1haW4PbWludF90b19hZGRyZXNzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIABAAMAAwBEQECEiQIARIgGw7O7WUWHZkVsSi1zRwRzkktcCs7ls26I/IZpt1t7qYSChIIAOH1BQAAAAA=';
+var rawTx = libra.utils.deserializeRawTxnBytes(rawTxnBytes);
+console.log('Raw transaction', rawTx);
+```
+
 ### Getting help
 
 If you believe you're experiencing a bug with or want to report incorrect documentation, open an issue on our issue tracker. For a more real-time avenue of communication, check out the Discord or Telegram servers. There you'll find community members who can help answer about development questions.

@@ -1,12 +1,13 @@
 {
   "name": "libra-grpc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight JavaScript library for Libra",
   "main": "dist/libra.cjs.js",
   "module": "dist/libra.esm.js",
   "browser": "dist/libra.min.js",
   "dependencies": {
     "@grpc/proto-loader": "^0.5.1",
+    "google-protobuf": "^3.8.0",
     "grpc": "^1.21.1"
   },
   "devDependencies": {

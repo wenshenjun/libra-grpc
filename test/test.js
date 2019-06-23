@@ -37,8 +37,13 @@ const test = async () => {
     limit: 10,
     fetch_events: true,
   };
-  const transactions = await client.request('get_transactions', params);
-  console.log('Transactions', transactions);
+  client.request('get_transactions', params).then(transactions => {
+    console.log('Transactions', transactions);
+
+    /** Deserialize raw txn bytes */
+    const rawTx = libra.utils.deserializeRawTxnBytes(transactions.txn_list_with_proof.transactions[0].raw_txn_bytes);
+    console.log('Raw transaction', rawTx);
+  });
 };
 
 test();
