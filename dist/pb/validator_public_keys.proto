@@ -3,7 +3,7 @@
 
 syntax = "proto3";
 
-package types; option go_package = "github.com/phlip9/libra_example/types";
+package types;
 
 // Protobuf definition for the Rust struct ValidatorPublicKeys
 message ValidatorPublicKeys {

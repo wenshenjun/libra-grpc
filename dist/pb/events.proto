@@ -7,7 +7,7 @@
 
 syntax = "proto3";
 
-package types; option go_package = "github.com/phlip9/libra_example/types";
+package types;
 
 import "access_path.proto";
 import "proof.proto";

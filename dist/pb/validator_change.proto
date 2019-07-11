@@ -3,7 +3,7 @@
 
 syntax = "proto3";
 
-package types; option go_package = "github.com/phlip9/libra_example/types";
+package types;
 
 import "events.proto";
 import "ledger_info.proto";

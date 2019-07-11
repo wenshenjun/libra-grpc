@@ -3,7 +3,7 @@
 
 syntax = "proto3";
 
-package admission_control; option go_package = "github.com/phlip9/libra_example/admission_control";
+package admission_control;
 
 import "get_with_proof.proto";
 import "mempool_status.proto";
@@ -19,11 +19,20 @@ message SubmitTransactionRequest {
   types.SignedTransaction signed_txn = 1;
 }
 
+// AC response status containing code and optionally an error message.
+message AdmissionControlStatus {
+  AdmissionControlStatusCode code = 1;
+  string message = 2;
+}
+
 // Additional statuses that are possible from admission control in addition
 // to VM statuses.
-enum AdmissionControlStatus {
+enum AdmissionControlStatusCode {
+  // Validator accepted the transaction.
   Accepted = 0;
+  // The sender is blacklisted.
   Blacklisted = 1;
+  // The transaction is rejected, e.g. due to incorrect signature.
   Rejected = 2;
 }
 

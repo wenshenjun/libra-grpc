@@ -5,7 +5,8 @@ syntax = "proto3";
 
 package types;
 
-message AccessPath {
-  bytes address = 1;
-  bytes path = 2;
+/// The unique identifier for a module on the chain.
+message ModuleId {
+    bytes address = 1;
+    string name = 2;
 }
