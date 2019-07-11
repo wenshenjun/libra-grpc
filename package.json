@@ -17,7 +17,8 @@
     "rollup-plugin-filesize": "^5.0.1",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-uglify": "^3.0.0",
-    "uglify-es": "^3.3.9"
+    "uglify-es": "^3.3.9",
+    "grpc_tools_node_protoc_ts": "^2.5.3"
   },
   "scripts": {
     "build": "rollup -c",
